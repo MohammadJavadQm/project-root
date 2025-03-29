@@ -1,0 +1,32 @@
+ @import url('./components/header.css');
+ @import url('./components/products.css');
+ @import url('./components/theme.css');
+ 
+ body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: var(--background);
+    color: var(--text);
+    transition: var(--transition);
+  }
+  
+  :root {
+    --primary: #2563eb;
+    --background: #ffffff;
+    --text: #1f2937;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* حالت روشن */
+  html[data-theme="light"] {
+    --background: #ffffff;
+    --text: #1f2937;
+  }
+  
+  /* حالت تاریک */
+  html[data-theme="dark"] {
+    --background: #121212;
+    --text: #f1f1f1;
+  }
+
+  

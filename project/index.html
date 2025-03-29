@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Store</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <header class="header">
+    <!-- بخش برند -->
+    <div class="brand">
+      <img src="../project/assets/images/OIP.jpg" alt="Logo" class="logo">
+      <div class="theme-toggle">
+        <!-- فقط یک دکمه با آیکون اولیه به عنوان حالت روشن -->
+        <button id="themeToggle" class="theme-btn">🌙</button>
+      </div>
+      <div class="box">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="#" class="menu-parent">Products <i class="fas fa-chevron-right"></i></a>
+            <div class="dropdown-menu">
+              <a href="#">New Arrivals</a>
+              <a href="#">Best Sellers</a>
+              <a href="#">On Sale</a>
+            </div>
+          </li>          
+          <li class="nav-item">
+            <a href="#">Solutions</a>
+          </li>
+          <li class="nav-item">
+            <a href="#">Pricing</a>
+          </li>
+        </ul>
+      </div>
+    </div>    
+    
+    <div class="auth-buttons desktop-auth">
+      <button class="btn signin">Sign In</button>
+      <button class="btn register">Register</button>
+    </div>
+
+    <!-- بخش موبایل: ظرف شامل دکمه همبرگر و منوی موبایل -->
+    <!-- HTML -->
+    <div class="mobile-nav-container">
+      <button class="menu-toggle">
+        <span class="hamburger"></span>
+      </button>
+      <div class="mobile-menu">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="#" class="menu-parent">Products <i class="fas fa-chevron-right"></i></a>
+            <div class="dropdown-menu">
+              <a href="#">New Arrivals</a>
+              <a href="#">Best Sellers</a>
+              <a href="#">On Sale</a>
+            </div>
+          </li>          
+          <li class="nav-item">
+            <a href="#">Solutions</a>
+          </li>
+          <li class="nav-item">
+            <a href="#">Pricing</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="search-section">
+      <div class="search-container">
+        <i class="fas fa-search search-icon"></i>
+        <input type="search" placeholder="جستجوی محصولات..." class="search-input">
+      </div>
+    </section>
+  </main>
+  <!-- بعد از تگ main و قبل از products-container این قسمت را اضافه کنید -->
+  <div class="search-modal" id="searchModal">
+    <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <div class="modal-results" id="modalResults"></div>
+  </div>
+</div>
+  <div class="products-container"></div>
+
+
+  <script type="module" src="./javascript/script.js"></script>
+  <script type="module" src="./javascript/theme-switcher.js"></script>
+</body>
+</html>

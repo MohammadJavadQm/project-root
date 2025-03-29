@@ -1,0 +1,389 @@
+/* ---------------------header------------------------ */
+
+/* تعریف متغیرهای CSS برای مدیریت یکپارچه مقادیر */
+:root {
+  --bg-dark: #1f2937;
+  --bg-hover: #183d74;
+  --bg-dropdown: rgb(43, 39, 39);
+  --bg-header: rgba(0, 0, 0, 0.95);
+  --bg-mobile: rgba(0, 0, 0, 0.95);
+  --transition-fast: 0.3s ease;
+  --transition-slow: 1s ease;
+  --border-radius-small: 4px;
+  --border-radius-medium: 8px;
+  --border-radius-large: 12px;
+  --header-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* دکمه‌های تم */
+.theme-toggle > * {
+  display: inline;
+  background-color: var(--bg-dark);
+  border-radius: var(--border-radius-large);
+  cursor: pointer;
+  transition: background var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.theme-toggle:hover > * {
+  box-shadow: 0 0 8px gray;
+}
+
+/* ناوبری دسکتاپ */
+.desktop-nav, .desktop-auth {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* لیست ناوبری */
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  list-style: none;
+  margin-left: 72px;
+  padding: 0;
+}
+
+.nav-item {
+  position: relative;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius-medium);
+  transition: background var(--transition-fast);
+}
+
+.nav-item:hover {
+  background-color: blue; /* رنگ پس‌زمینه آبی */
+  color: white; /* رنگ متن برای تضاد مناسب (اختیاری) */
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+
+/* منوی کشویی */
+ .nav-item .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 25px;
+  left: 0;
+  background-color: var(--bg-dropdown);
+  border-radius: var(--border-radius-medium);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem;
+  min-width: 200px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity var(--transition-fast), visibility var(--transition-fast), transform var(--transition-fast);
+  z-index: 1000;
+} 
+
+ .nav-item:hover .dropdown-menu {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+} 
+
+ .dropdown-menu a {
+  display: block;
+  padding: 8px 12px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: var(--border-radius-small);
+  margin-bottom: 6px;
+  transition: background-color var(--transition-fast);
+} 
+
+ .dropdown-menu a:hover {
+  background-color: #183d74;
+}
+
+.dropdown-menu a:active {
+  background-color: #183d74;
+}
+
+.dropdown-menu > * {
+  background-color: #000;
+  padding: 4px;
+  border-radius: var(--border-radius-small);
+  transition: background var(--transition-fast);
+}
+
+/* چرخش آیکون در حالت هاور */
+.nav-item i.fas.fa-chevron-right {
+  transition: transform var(--transition-fast);
+}
+
+.nav-item:hover i.fas.fa-chevron-right {
+  transform: rotate(90deg);
+}
+
+/* دکمه‌های احراز هویت */
+.auth-buttons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* دکمه‌ها */
+.btn {
+  padding: 0.5rem 1.5rem;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+  transition: background var(--transition-fast), transform 0.2s ease;
+}
+
+.signin {
+  background: #f3f4f6;
+  color: #1f2937;
+}
+
+.register {
+  background: #2563eb;
+  color: white;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.mobile-menu {
+  position: absolute;
+  top: 120%;
+  right: 0;
+  background: var(--bg-mobile);
+  border-radius: var(--border-radius-medium);
+  padding: 1rem;
+  min-width: 200px;
+  opacity: 1;
+  visibility: visible;
+  /* transform: translateY(-10px); */
+  /* transition: opacity var(--transition-fast), visibility var(--transition-fast), transform var(--transition-fast); */
+  z-index: 999;
+}
+
+/* دکمه همبرگر */
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+  padding: 8px;
+  transition: transform var(--transition-slow);
+}
+
+.hamburger {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background: #fff;
+  position: relative;
+  transition: all var(--transition-fast);
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #fff;
+  transition: all var(--transition-fast);
+}
+
+.hamburger::before {
+  top: -8px;
+}
+
+.hamburger::after {
+  top: 8px;
+}
+
+/* منوی موبایل */
+.mobile-nav-container {
+  display: none;
+  position: relative;
+}
+
+/* حالت فعال منوی موبایل */
+.mobile-nav-container.active .hamburger {
+  transform: rotate(135deg);
+}
+
+.mobile-nav-container.active .hamburger::before,
+.mobile-nav-container.active .hamburger::after {
+  transform: rotate(90deg);
+  top: 0;
+}
+
+.mobile-nav-container.active .mobile-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* استایل‌های Header */
+.header {
+  position: sticky;
+  top: 0;
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 5%;
+  background: var(--bg-header);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--header-shadow);
+  z-index: 1000;
+  color: #d1d5db;
+  border: 1px solid aqua;
+  border-radius: var(--border-radius-large);
+  transition: all var(--transition-fast);
+  max-height: 70px;
+}
+
+.header:hover {
+  box-shadow: 0 0 8px gray;
+}
+
+/* بخش Brand */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  transition: box-shadow var(--transition-fast);
+}
+
+.logo:hover {
+  box-shadow: 0 0 12px gainsboro;
+}
+
+/* تنظیمات ریسپانسیو برای موبایل */
+@media (max-width: 1100px) {
+
+  .box {
+    visibility: hidden;
+  }
+
+  .desktop-nav,
+  .desktop-auth {
+    display: none;
+  }
+  .menu-toggle,
+  .mobile-nav-container {
+    display: block;
+  }
+  .nav-list {
+    flex-direction: column;
+    margin-left: 0px;
+    gap: 1rem;
+  }
+   .nav-item {
+    width: 80%;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius-medium);
+    margin-bottom: 14px;
+  } 
+  .auth-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+}
+
+/* استایل اصلی منو */
+ .nav-item.active {
+  background: #183d74;
+  position: relative;
+} 
+
+ .nav-item.active .dropdown-menu {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) !important;
+  animation: menuSlide 0.3s ease-out;
+} 
+
+@keyframes menuSlide {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* حالت موبایل */
+@media (max-width: 1200px) {
+  .nav-item.active .dropdown-menu {
+    position: static;
+    width: 100%;
+    margin-top: 10px;
+    background: rgba(0,0,0,0.8);
+  }
+
+  .mobile-menu {
+    position: absolute;
+    top: 120%;
+    right: 0;
+    background: var(--bg-mobile);
+    border-radius: var(--border-radius-medium);
+    padding: 1rem;
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity var(--transition-fast), visibility var(--transition-fast), transform var(--transition-fast);
+    z-index: 999;
+  }
+}
+
+.nav-item {
+  position: relative;
+  background-color: #1f2937;
+}
+
+.dropdown-menu {
+  display: none; /* به صورت پیش‌فرض مخفی باشد */
+  position: absolute;
+  top: 100%; /* درست زیر آیتم والد */
+  left: 0;
+  background-color: #737373;
+  border: 1px solid #ffffff;
+  border-radius: 8px;
+  padding: 10px;
+  z-index: 1000;
+}
+
+.dropdown-menu a {
+  color: #fff;
+  display: block;
+  padding: 8px 12px;
+  margin-bottom: 6px;
+  text-decoration: none;
+  border-radius: var(--border-radius-small);
+  transition: background-color var(--transition-fast);
+}
+
+.dropdown-menu a:active {
+  background-color: #f0f0f0;
+}
+
